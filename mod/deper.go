@@ -2,6 +2,7 @@ package mod
 
 import (
 	"fmt"
+	"golang.org/x/mod/module"
 	"golang.org/x/mod/semver"
 )
 
@@ -54,4 +55,13 @@ func (d *Deponer) IsValid(mod string, version string) error {
 func (d *Deponer) IsDeprecate(mod string) bool {
 	_, ok := d.deprecates[mod]
 	return ok
+}
+
+func (d *Deponer) Valid(mods map[string]*module.Version) {
+	for k, v := range mods {
+		vv := v.Version
+		if err := d.IsValid(k, vv); err != nil {
+			panic(err)
+		}
+	}
 }
