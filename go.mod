@@ -1,4 +1,4 @@
-module depmod
+module github.com/tangtj/depmod
 
 go 1.16
 
