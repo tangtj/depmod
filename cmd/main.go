@@ -1,8 +1,10 @@
 package main
 
 import (
-	"depmod/mod"
 	"flag"
+	"github.com/tangtj/depmod/mod"
+	"log"
+	"os"
 )
 
 func main() {
@@ -13,14 +15,19 @@ func main() {
 
 	ver, err := mod.Mod(*modPath)
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		os.Exit(1)
 	}
 
 	cfg, err := mod.Config(*configPath)
 	if err != nil {
-		panic(err)
+		log.Println(err)
+		os.Exit(1)
 	}
 
 	deponer := mod.NewDeponer(cfg)
-	deponer.Valid(ver)
+	if err := deponer.Valid(ver); err != nil {
+		log.Println(err)
+		os.Exit(1)
+	}
 }

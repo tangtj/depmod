@@ -57,11 +57,12 @@ func (d *Deponer) IsDeprecate(mod string) bool {
 	return ok
 }
 
-func (d *Deponer) Valid(mods map[string]*module.Version) {
+func (d *Deponer) Valid(mods map[string]*module.Version) error {
 	for k, v := range mods {
 		vv := v.Version
 		if err := d.IsValid(k, vv); err != nil {
-			panic(err)
+			return err
 		}
 	}
+	return nil
 }
