@@ -1,0 +1,31 @@
+{
+  "title": "Config",
+  "type": "object",
+  "description": "校验配置格式",
+  "properties": {
+    "mods": {
+      "description": "模块配置",
+      "type": "array",
+      "properties": {
+        "name": {
+          "description": "依赖路径",
+          "type": "string",
+          "minimum": 1
+        },
+        "min_ver":{
+          "description": "依赖版本号，需符合Semver",
+          "type": "string",
+          "pattern": "v[0-9]+\\.[0-9]+\\.[0-9]+"
+        }
+      },
+      "required": ["name","min_ver"]
+    },
+    "deprecates": {
+      "description": "已废弃启用模块，无视任何版本号",
+      "type": "array",
+      "items": {
+        "type": "string"
+      }
+    }
+  }
+}
