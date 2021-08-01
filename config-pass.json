@@ -1,0 +1,9 @@
+{
+  "mods":[
+    {
+      "name":"golang.org/x/mod",
+      "min_ver":"v0.4.3"
+    }
+
+  ]
+}
