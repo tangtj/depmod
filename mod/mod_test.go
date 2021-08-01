@@ -16,7 +16,9 @@ func Test_mod(t *testing.T) {
 		want    *modfile.File
 		wantErr bool
 	}{
-		{args: args{path: "testdata/test1.Mod"}},
+		{args: args{path: "testdata/test1.Mod"},
+			wantErr: false,
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

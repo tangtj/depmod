@@ -3,7 +3,6 @@ package main
 import (
 	"depmod/mod"
 	"flag"
-	"os"
 )
 
 func main() {
@@ -23,12 +22,5 @@ func main() {
 	}
 
 	deponer := mod.NewDeponer(cfg)
-
-	for k, v := range ver {
-		vv := v.Version
-		if err := deponer.IsValid(k, vv); err != nil {
-			panic(err)
-		}
-	}
-	os.Exit(1)
+	deponer.Valid(ver)
 }
