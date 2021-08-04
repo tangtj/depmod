@@ -2,8 +2,11 @@
   "mods":[
     {
       "name":"golang.org/x/mod",
-      "min_ver":"v0.4.3"
+      "min_ver":"v0.4.3",
+      "deprecated": true
     }
-
+  ],
+  "deprecates": [
+    "github.com/go-redis/redis/v7"
   ]
 }

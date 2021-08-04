@@ -16,6 +16,11 @@
           "description": "依赖版本号，需符合Semver",
           "type": "string",
           "pattern": "v[0-9]+\\.[0-9]+\\.[0-9]+"
+        },
+        "deprecated":{
+          "description": "是否已弃用",
+          "type": "boolean",
+          "default": false
         }
       },
       "required": ["name","min_ver"]
